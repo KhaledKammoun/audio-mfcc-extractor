@@ -1,12 +1,12 @@
 import librosa
 import librosa.display
-import numpy as np
 import matplotlib.pyplot as plt
 
 # Charger audio
-signal, sr = librosa.load("data/audio.wav", sr=None)
+# signal, sr = librosa.load("data/audio.wav", sr=None)
+signal, sr = librosa.load("data/card_mixing_audio.mp3", sr=None)
 
-# MFCC
+# Extraire MFCC
 mfcc = librosa.feature.mfcc(
     y=signal,
     sr=sr,
@@ -15,7 +15,7 @@ mfcc = librosa.feature.mfcc(
     hop_length=int(0.01 * sr)
 )
 
-# Affichage
+# Afficher MFCC
 plt.figure(figsize=(10, 4))
 librosa.display.specshow(mfcc, x_axis='time')
 plt.colorbar()
